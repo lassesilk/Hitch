@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41EAC5020DC1E6D002A2CB7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC4F20DC1E6D002A2CB7 /* GradientView.swift */; };
+		C41EAC5220DC2196002A2CB7 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC5120DC2196002A2CB7 /* RoundImageView.swift */; };
+		C41EAC5420DC2534002A2CB7 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC5320DC2534002A2CB7 /* RoundedShadowView.swift */; };
+		C41EAC5620DC2671002A2CB7 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC5520DC2671002A2CB7 /* CircleView.swift */; };
+		C41EAC5820DC28CD002A2CB7 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC5720DC28CD002A2CB7 /* RoundedShadowButton.swift */; };
 		C4AEA9A020DC065E00A57289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEA99F20DC065E00A57289 /* AppDelegate.swift */; };
 		C4AEA9A220DC065E00A57289 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEA9A120DC065E00A57289 /* ViewController.swift */; };
 		C4AEA9A520DC065E00A57289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A320DC065E00A57289 /* Main.storyboard */; };
 		C4AEA9A720DC065E00A57289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A620DC065E00A57289 /* Assets.xcassets */; };
 		C4AEA9AA20DC065E00A57289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A820DC065E00A57289 /* LaunchScreen.storyboard */; };
+		FE1C465F562380D9D67A8ED8 /* Pods_Hitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2E8E80BA7FBA32E51CD27 /* Pods_Hitch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B9188F214ABD812281476E1 /* Pods-Hitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.debug.xcconfig"; sourceTree = "<group>"; };
+		44375D84D521C24DACC7A5BE /* Pods-Hitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.release.xcconfig"; sourceTree = "<group>"; };
+		A9C2E8E80BA7FBA32E51CD27 /* Pods_Hitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41EAC4F20DC1E6D002A2CB7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C41EAC5120DC2196002A2CB7 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		C41EAC5320DC2534002A2CB7 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
+		C41EAC5520DC2671002A2CB7 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		C41EAC5720DC28CD002A2CB7 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		C4AEA99C20DC065E00A57289 /* Hitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AEA99F20DC065E00A57289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AEA9A120DC065E00A57289 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +43,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1C465F562380D9D67A8ED8 /* Pods_Hitch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52245ABF91D5ED6683264431 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B9188F214ABD812281476E1 /* Pods-Hitch.debug.xcconfig */,
+				44375D84D521C24DACC7A5BE /* Pods-Hitch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		97CE71005806FC447AB1F87F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2E8E80BA7FBA32E51CD27 /* Pods_Hitch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C41EAC4C20DC1E34002A2CB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C41EAC4D20DC1E3B002A2CB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C41EAC4E20DC1E41002A2CB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C41EAC5720DC28CD002A2CB7 /* RoundedShadowButton.swift */,
+				C41EAC5520DC2671002A2CB7 /* CircleView.swift */,
+				C41EAC5320DC2534002A2CB7 /* RoundedShadowView.swift */,
+				C41EAC5120DC2196002A2CB7 /* RoundImageView.swift */,
+				C41EAC4F20DC1E6D002A2CB7 /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C4AEA99320DC065E00A57289 = {
 			isa = PBXGroup;
 			children = (
 				C4AEA99E20DC065E00A57289 /* Hitch */,
 				C4AEA99D20DC065E00A57289 /* Products */,
+				52245ABF91D5ED6683264431 /* Pods */,
+				97CE71005806FC447AB1F87F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +114,9 @@
 		C4AEA99E20DC065E00A57289 /* Hitch */ = {
 			isa = PBXGroup;
 			children = (
+				C41EAC4D20DC1E3B002A2CB7 /* Model */,
+				C41EAC4E20DC1E41002A2CB7 /* View */,
+				C41EAC4C20DC1E34002A2CB7 /* Controller */,
 				C4AEA99F20DC065E00A57289 /* AppDelegate.swift */,
 				C4AEA9A120DC065E00A57289 /* ViewController.swift */,
 				C4AEA9A320DC065E00A57289 /* Main.storyboard */,
@@ -71,9 +134,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AEA9AE20DC065E00A57289 /* Build configuration list for PBXNativeTarget "Hitch" */;
 			buildPhases = (
+				74F34A7F3E6E935D3E0073B1 /* [CP] Check Pods Manifest.lock */,
 				C4AEA99820DC065E00A57289 /* Sources */,
 				C4AEA99920DC065E00A57289 /* Frameworks */,
 				C4AEA99A20DC065E00A57289 /* Resources */,
+				83E05FE952B2D94B9D02548C /* [CP] Embed Pods Frameworks */,
+				66F674B0CCB3C86FAC15CFDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +197,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66F674B0CCB3C86FAC15CFDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hitch/Pods-Hitch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74F34A7F3E6E935D3E0073B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hitch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83E05FE952B2D94B9D02548C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Hitch/Pods-Hitch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hitch/Pods-Hitch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4AEA99820DC065E00A57289 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41EAC5820DC28CD002A2CB7 /* RoundedShadowButton.swift in Sources */,
+				C41EAC5620DC2671002A2CB7 /* CircleView.swift in Sources */,
 				C4AEA9A220DC065E00A57289 /* ViewController.swift in Sources */,
+				C41EAC5220DC2196002A2CB7 /* RoundImageView.swift in Sources */,
+				C41EAC5420DC2534002A2CB7 /* RoundedShadowView.swift in Sources */,
 				C4AEA9A020DC065E00A57289 /* AppDelegate.swift in Sources */,
+				C41EAC5020DC1E6D002A2CB7 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +405,7 @@
 		};
 		C4AEA9AF20DC065E00A57289 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B9188F214ABD812281476E1 /* Pods-Hitch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -281,12 +415,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lassesilkoset.Hitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C4AEA9B020DC065E00A57289 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44375D84D521C24DACC7A5BE /* Pods-Hitch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,7 +431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lassesilkoset.Hitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
