@@ -87,6 +87,7 @@ class LeftSidePanelVC: UIViewController {
             if let currentUserId = Auth.auth().currentUser?.uid {
             appDelegate.menuContainerVC.toogleLeftPanel()
             DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["isPickupModeEnabled" : true])
+            //Have to implement func to updatevalue on driver when logging in, since login by default is pickupmodedisabled.
             }
         } else {
             pickupModeLabel.text = "PICK UP MODE DISABLED"

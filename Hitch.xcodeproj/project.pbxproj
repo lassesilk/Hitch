@@ -20,11 +20,14 @@
 		C41EAC6220DC5698002A2CB7 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC6120DC5698002A2CB7 /* UIViewExt.swift */; };
 		C41EAC6420DC63A6002A2CB7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC6320DC63A6002A2CB7 /* LoginVC.swift */; };
 		C41EAC6620DC6984002A2CB7 /* RoundedCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EAC6520DC6984002A2CB7 /* RoundedCornerTextField.swift */; };
+		C479A70F20E3FB8600E2E206 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479A70E20E3FB8600E2E206 /* UpdateService.swift */; };
+		C479A71120E406F000E2E206 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479A71020E406F000E2E206 /* DriverAnnotation.swift */; };
 		C4AEA9A020DC065E00A57289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEA99F20DC065E00A57289 /* AppDelegate.swift */; };
 		C4AEA9A220DC065E00A57289 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEA9A120DC065E00A57289 /* HomeVC.swift */; };
 		C4AEA9A520DC065E00A57289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A320DC065E00A57289 /* Main.storyboard */; };
 		C4AEA9A720DC065E00A57289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A620DC065E00A57289 /* Assets.xcassets */; };
 		C4AEA9AA20DC065E00A57289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A820DC065E00A57289 /* LaunchScreen.storyboard */; };
+		C4C7DA3A20E534810065CE29 /* PassengerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7DA3920E534810065CE29 /* PassengerAnnotation.swift */; };
 		FE1C465F562380D9D67A8ED8 /* Pods_Hitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2E8E80BA7FBA32E51CD27 /* Pods_Hitch.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,8 @@
 		C41EAC6120DC5698002A2CB7 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		C41EAC6320DC63A6002A2CB7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C41EAC6520DC6984002A2CB7 /* RoundedCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTextField.swift; sourceTree = "<group>"; };
+		C479A70E20E3FB8600E2E206 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
+		C479A71020E406F000E2E206 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 		C4AEA99C20DC065E00A57289 /* Hitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AEA99F20DC065E00A57289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AEA9A120DC065E00A57289 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		C4AEA9A620DC065E00A57289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4AEA9A920DC065E00A57289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4AEA9AB20DC065E00A57289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4C7DA3920E534810065CE29 /* PassengerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				C40E9B2F20DD613400D7047E /* DataService.swift */,
+				C479A70E20E3FB8600E2E206 /* UpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				C41EAC5320DC2534002A2CB7 /* RoundedShadowView.swift */,
 				C41EAC5120DC2196002A2CB7 /* RoundImageView.swift */,
 				C41EAC4F20DC1E6D002A2CB7 /* GradientView.swift */,
+				C479A71020E406F000E2E206 /* DriverAnnotation.swift */,
+				C4C7DA3920E534810065CE29 /* PassengerAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,8 +329,11 @@
 				C41EAC5A20DC36C0002A2CB7 /* LeftSidePanelVC.swift in Sources */,
 				C41EAC5620DC2671002A2CB7 /* CircleView.swift in Sources */,
 				C41EAC5C20DC376D002A2CB7 /* ContainerVC.swift in Sources */,
+				C4C7DA3A20E534810065CE29 /* PassengerAnnotation.swift in Sources */,
 				C41EAC6220DC5698002A2CB7 /* UIViewExt.swift in Sources */,
+				C479A71120E406F000E2E206 /* DriverAnnotation.swift in Sources */,
 				C4AEA9A220DC065E00A57289 /* HomeVC.swift in Sources */,
+				C479A70F20E3FB8600E2E206 /* UpdateService.swift in Sources */,
 				C41EAC5220DC2196002A2CB7 /* RoundImageView.swift in Sources */,
 				C41EAC5420DC2534002A2CB7 /* RoundedShadowView.swift in Sources */,
 				C41EAC6620DC6984002A2CB7 /* RoundedCornerTextField.swift in Sources */,
