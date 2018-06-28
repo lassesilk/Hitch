@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController, UITextFieldDelegate
+class LoginVC: UIViewController, UITextFieldDelegate, Alertable
 {
     
     @IBOutlet weak var emailField: RoundedCornerTextField!
@@ -26,7 +26,6 @@ class LoginVC: UIViewController, UITextFieldDelegate
         view.bindToKeyboard()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        
         self.view.addGestureRecognizer(tap)
     }
     
@@ -63,9 +62,9 @@ class LoginVC: UIViewController, UITextFieldDelegate
                         if let errorCode = AuthErrorCode(rawValue: error!._code) {
                             switch errorCode {
                             case .wrongPassword:
-                                print("Wrong password!")
+                                self.showAlert("Wrong password!")
                             default:
-                                print("An unexpected error occured. Please try again.")
+                                self.showAlert("An unexpected error occured. Please try again.")
                             }
                         }
                         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -73,9 +72,9 @@ class LoginVC: UIViewController, UITextFieldDelegate
                                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                                     switch errorCode {
                                     case .invalidEmail:
-                                        print("Email invalid. Please try again.")
+                                        self.showAlert("Email invalid. Please try again.")
                                     default:
-                                        print("An unexpected error occured. Please try again.")
+                                        self.showAlert("An unexpected error occured. Please try again.")
                                     }
                                 }
                             } else {

@@ -12,7 +12,7 @@ import RevealingSplashView
 import CoreLocation
 import Firebase
 
-class HomeVC: UIViewController
+class HomeVC: UIViewController, Alertable
 {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -147,11 +147,9 @@ class HomeVC: UIViewController
     }
     
     @IBAction func menuButtonWasPressed(_ sender: Any) {
-        
         delegate?.toogleLeftPanel()
         
     }
-    
 }
 
 extension HomeVC: CLLocationManagerDelegate {
@@ -222,9 +220,9 @@ extension HomeVC: MKMapViewDelegate {
         
         search.start { (response, error) in
             if error != nil {
-                print(error.debugDescription)
+                self.showAlert("An error occured, please try again.")
             } else if response!.mapItems.count == 0 {
-                print("No results")
+                self.showAlert("No results. Please search again for a different location.")
             } else {
                 for mapItem in response!.mapItems {
                     self.matchingItems.append(mapItem as MKMapItem)
@@ -258,8 +256,8 @@ extension HomeVC: MKMapViewDelegate {
         let directions = MKDirections(request: request)
         
         directions.calculate { (response, error) in
-            guard let response = response else { 
-                print(error.debugDescription)
+            guard let response = response else {
+                self.showAlert("An error occured")
                 return
             }
             //Setting it to be the first one since it useally is the quickest
