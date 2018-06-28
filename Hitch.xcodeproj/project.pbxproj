@@ -28,6 +28,7 @@
 		C4AEA9A720DC065E00A57289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A620DC065E00A57289 /* Assets.xcassets */; };
 		C4AEA9AA20DC065E00A57289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AEA9A820DC065E00A57289 /* LaunchScreen.storyboard */; };
 		C4C7DA3A20E534810065CE29 /* PassengerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7DA3920E534810065CE29 /* PassengerAnnotation.swift */; };
+		C4C7DA3C20E548660065CE29 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C7DA3B20E548660065CE29 /* UIViewControllerExt.swift */; };
 		FE1C465F562380D9D67A8ED8 /* Pods_Hitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2E8E80BA7FBA32E51CD27 /* Pods_Hitch.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		C4AEA9A920DC065E00A57289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4AEA9AB20DC065E00A57289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C7DA3920E534810065CE29 /* PassengerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerAnnotation.swift; sourceTree = "<group>"; };
+		C4C7DA3B20E548660065CE29 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				C41EAC6120DC5698002A2CB7 /* UIViewExt.swift */,
+				C4C7DA3B20E548660065CE29 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				C41EAC5F20DC3C3F002A2CB7 /* CenterVCDelegate.swift in Sources */,
 				C40E9B3020DD613400D7047E /* DataService.swift in Sources */,
+				C4C7DA3C20E548660065CE29 /* UIViewControllerExt.swift in Sources */,
 				C41EAC5820DC28CD002A2CB7 /* RoundedShadowButton.swift in Sources */,
 				C41EAC6420DC63A6002A2CB7 /* LoginVC.swift in Sources */,
 				C41EAC5A20DC36C0002A2CB7 /* LeftSidePanelVC.swift in Sources */,

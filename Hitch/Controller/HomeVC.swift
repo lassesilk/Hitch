@@ -124,8 +124,23 @@ class HomeVC: UIViewController
     }
     
     @IBAction func centerMapButtonPressed(_ sender: Any) {
-        centerMapOnUserLocation()
-        centerMapButton.fadeTo(alphaValue: 0.0, withDuration: 0.2)
+        if let id = Auth.auth().currentUser?.uid {
+            DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                    for user in userSnapshot {
+                        if user.key == id {
+                            if user.hasChild("tripCoordinate") {
+                                self.zoom(toFitAnnotationsFromMapView: self.mapView)
+                                self.centerMapButton.fadeTo(alphaValue: 0.0, withDuration: 0.2)
+                            } else {
+                                self.centerMapOnUserLocation()
+                                self.centerMapButton.fadeTo(alphaValue: 0.0, withDuration: 0.2)
+                            }
+                        }
+                    }
+                }
+            })
+        }
     }
     @IBAction func actionButtonPressed(_ sender: Any) {
         actionButton.animateButton(shouldLoad: true, withMessage: nil)
@@ -192,6 +207,8 @@ extension HomeVC: MKMapViewDelegate {
         lineRenderer.strokeColor = UIColor(red: 216/255, green: 71/255, blue: 30/255, alpha: 0.75)
         lineRenderer.lineWidth = 3
         
+        zoom(toFitAnnotationsFromMapView: self.mapView)
+        
         return lineRenderer
     }
     
@@ -212,6 +229,7 @@ extension HomeVC: MKMapViewDelegate {
                 for mapItem in response!.mapItems {
                     self.matchingItems.append(mapItem as MKMapItem)
                     self.tableView.reloadData()
+                    self.shouldPresentLoadingView(false)
                 }
             }
         }
@@ -248,7 +266,33 @@ extension HomeVC: MKMapViewDelegate {
             self.route = response.routes[0]
             
             self.mapView.add(self.route.polyline)
+            
+            self.shouldPresentLoadingView(false)
         }
+    }
+    
+    func zoom(toFitAnnotationsFromMapView mapView: MKMapView) {
+        if mapView.annotations.count == 0 {
+            return
+        }
+        
+        var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 180)
+        var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -180)
+        
+        for annotation in mapView.annotations where !annotation.isKind(of: DriverAnnotation.self) {
+            //we are creating a radius that includes the passenger and driver annotation.
+            //funcs below return the smaller and bigger of both of theese values and create a perfect rectangle that contains both passenger
+            //pickup point and destination point.
+            topLeftCoordinate.longitude = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
+            topLeftCoordinate.latitude = fmax(topLeftCoordinate.latitude, annotation.coordinate.latitude)
+            bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
+            bottomRightCoordinate.latitude = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
+        }
+        
+        var region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.5, topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.5), span: MKCoordinateSpan(latitudeDelta: fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 2.0, longitudeDelta: fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 2.0))
+        
+        region = mapView.regionThatFits(region)
+        mapView.setRegion(region, animated: true)
     }
 }
 
@@ -281,6 +325,7 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == destinationTextField {
             performSearch()
+            shouldPresentLoadingView(true)
             view.endEditing(true)
         }
         return true
@@ -300,6 +345,20 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         matchingItems = []
         tableView.reloadData()
+        
+        if let id = Auth.auth().currentUser?.uid {
+        DataService.instance.REF_USERS.child(id).child("tripCoordinate").removeValue()
+        }
+        
+        mapView.removeOverlays(mapView.overlays)
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            } else if annotation.isKind(of: PassengerAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
         centerMapOnUserLocation()
         
         return true
@@ -343,6 +402,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return matchingItems.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        shouldPresentLoadingView(true)
         
         let passengerCoordinate = manager?.location?.coordinate
         if let id = Auth.auth().currentUser?.uid {
