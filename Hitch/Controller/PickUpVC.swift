@@ -8,23 +8,56 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class PickUpVC: UIViewController {
 
     
     @IBOutlet weak var pickupMapView: RoundMapView!
     
+    var pickupCoordinate: CLLocationCoordinate2D!
+    var passengerKey: String!
+    
+    var locationPlacemark: MKPlacemark!
+    
     var regionRadius: CLLocationDistance = 2000
     var pin: MKPlacemark? = nil
     
+    var id = Auth.auth().currentUser?.uid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        pickupMapView.delegate = self
+        
+        locationPlacemark = MKPlacemark(coordinate: pickupCoordinate)
+        
+        dropPinForPlacemark(placemark: locationPlacemark)
+        centerMapOnLocation(location: locationPlacemark.location!)
+        
+        DataService.instance.REF_TRIPS.child(passengerKey).observe(.value, with: { (tripSnapshot) in
+            if tripSnapshot.exists() {
+                //check for acceptance
+                //below is in case someone else then this driver accepts the trip first
+                if tripSnapshot.childSnapshot(forPath: "tripIsAccepted").value as? Bool == true {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                //this is if the customer cancels the trip before the driver can accept
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        
+    }
+    
+    func initData(coordinate: CLLocationCoordinate2D, passengerKey: String) {
+        self.pickupCoordinate = coordinate
+        self.passengerKey = passengerKey
     }
 
     @IBAction func acceptTripButtonPressed(_ sender: Any) {
-        
+        UpdateService.instance.acceptTrip(withPassengerKey: passengerKey, forDriverKey: id!)
+        presentingViewController?.shouldPresentLoadingView(true)
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
