@@ -43,12 +43,12 @@ class LeftSidePanelVC: UIViewController {
             userEmailLabel.text = ""
             userAccountTypeLabel.text =  ""
             userImageView.isHidden = true
-            loginOutButton.setTitle("Sign up / Login", for: .normal)
+            loginOutButton.setTitle(MSG_SIGN_UP_SIGN_IN, for: .normal)
         } else {
             userEmailLabel.text = Auth.auth().currentUser?.email
             userAccountTypeLabel.text = ""
             userImageView.isHidden = false
-            loginOutButton.setTitle("Logout", for: .normal)
+            loginOutButton.setTitle(MSG_SIGN_OUT, for: .normal)
         }
     }
     
@@ -59,7 +59,7 @@ class LeftSidePanelVC: UIViewController {
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
-                        self.userAccountTypeLabel.text = "PASSENGER"
+                        self.userAccountTypeLabel.text = ACCOUNT_TYPE_PASSENGER
                     }
                 }
             }
@@ -68,10 +68,10 @@ class LeftSidePanelVC: UIViewController {
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
-                        self.userAccountTypeLabel.text = "DRIVER"
+                        self.userAccountTypeLabel.text = ACCOUNT_TYPE_DRIVER
                         self.pickupModeSwitch.isHidden = false
                         
-                        let switchStatus = snap.childSnapshot(forPath: "isPickupModeEnabled").value as! Bool
+                        let switchStatus = snap.childSnapshot(forPath: ACCOUNT_PICKUP_MODE_ENABLED).value as! Bool
                         self.pickupModeSwitch.isOn = switchStatus
                         self.pickupModeLabel.isHidden = false
                     }
@@ -83,25 +83,25 @@ class LeftSidePanelVC: UIViewController {
    
     @IBAction func switchWasToggled(_ sender: Any) {
         if pickupModeSwitch.isOn {
-            pickupModeLabel.text = "PICK UP MODE ENABLED"
+            pickupModeLabel.text = MSG_PICKUP_MODE_ENABLED
             if let currentUserId = Auth.auth().currentUser?.uid {
             appDelegate.menuContainerVC.toogleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["isPickupModeEnabled" : true])
+            DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues([ACCOUNT_PICKUP_MODE_ENABLED : true])
             //Have to implement func to updatevalue on driver when logging in, since login by default is pickupmodedisabled.
             }
         } else {
-            pickupModeLabel.text = "PICK UP MODE DISABLED"
+            pickupModeLabel.text = MSG_PICKUP_MODE_DISABLED
             if let currentUserId = Auth.auth().currentUser?.uid {
             appDelegate.menuContainerVC.toogleLeftPanel()
-            DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues(["isPickupModeEnabled" : false])
+            DataService.instance.REF_DRIVERS.child(currentUserId).updateChildValues([ACCOUNT_PICKUP_MODE_ENABLED : false])
             }
         }
     }
     
     @IBAction func signUpLoginButtonPressed(_ sender: Any) {
         if Auth.auth().currentUser == nil {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+        let storyboard = UIStoryboard(name: MAIN_STORYBOARD, bundle: Bundle.main)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: VC_LOGIN) as? LoginVC
         present(loginVC!, animated: true, completion: nil)
             
             } else {
@@ -112,13 +112,10 @@ class LeftSidePanelVC: UIViewController {
                 userImageView.isHidden = true
                 pickupModeLabel.text = ""
                 pickupModeSwitch.isHidden = true
-                loginOutButton.setTitle("Sign up / Login", for: .normal)
+                loginOutButton.setTitle(MSG_SIGN_UP_SIGN_IN, for: .normal)
             } catch(let error) {
                 print(error)
             }
         }
     }
-    
-   
-
 }

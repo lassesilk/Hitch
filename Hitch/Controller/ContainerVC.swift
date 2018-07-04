@@ -180,14 +180,14 @@ private extension UIStoryboard {
     //Using class because I want this to be able to be overriden by ContainerVC, to access and modify the storyboard
     //With this func we can access and modify
     class func mainStoryboard() -> UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
+        return UIStoryboard(name: MAIN_STORYBOARD, bundle: Bundle.main)
     }
     
     class func leftViewController() -> LeftSidePanelVC? {
-        return mainStoryboard().instantiateViewController(withIdentifier: "LeftSidePanelVC") as? LeftSidePanelVC
+        return mainStoryboard().instantiateViewController(withIdentifier: VC_LEFT_PANEL) as? LeftSidePanelVC
     }
     
     class func homeVC() -> HomeVC? {
-        return mainStoryboard().instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
+        return mainStoryboard().instantiateViewController(withIdentifier: VC_HOME) as? HomeVC
     }
 }

@@ -39,7 +39,7 @@ class PickUpVC: UIViewController {
             if tripSnapshot.exists() {
                 //check for acceptance
                 //below is in case someone else then this driver accepts the trip first
-                if tripSnapshot.childSnapshot(forPath: "tripIsAccepted").value as? Bool == true {
+                if tripSnapshot.childSnapshot(forPath: TRIP_IS_ACCEPTED).value as? Bool == true {
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {
@@ -74,7 +74,7 @@ extension PickUpVC: MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "destinationAnnotation")
+        annotationView?.image = UIImage(named: ANNO_DESTINATION)
         
         return annotationView
     }
